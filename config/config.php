@@ -43,3 +43,23 @@ function getCategories()
     $categories = array_unique(array_column($datas, 'categorie'));
     return $categories;
 }
+
+
+function getPromotions()
+{
+    $datas = json_decode(file_get_contents(DATAJSON), true);
+    $promotions = array_filter($datas, function ($data) {
+        return $data['promotion'] == true;
+        $dataFound[] =
+            [
+                'id' => $data['id'],
+                'image' => $data['image'] ?? DEFAULT_IMAGE,
+                'designation' => $data['designation'],
+                'modele' => $data['modele'],
+                "prix" => $data['prix'],
+                'categorie' => $data['categorie'],
+                'promotion' => $data['promotion'] ? 'true' : 'false'
+            ];
+    });
+    return $dataFound;
+}
