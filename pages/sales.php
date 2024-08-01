@@ -2,21 +2,23 @@
 require_once '../config/config.php';
 require_once '../inc/header.php';
 ?>
-
+ <link rel="stylesheet" href="../css/style.css">
 <div class="container">
     <h2>Produits en Promotion</h2>
     <div class="product-grid">
         <?php
-        $promotions = getpromotions();
+        // Récupérer les produits en promotion
+        $promotions = getPromotions();
 
-        if ($promotions['promotion']) {
-            foreach ($promotions as $product) { ?>
+        // Vérifier si des produits en promotion existent
+        if (!empty($promotions)) {
+            foreach ($promotions as $produit) { ?>
                 <div class="product-item">
-                    <a href="index.php?page=product&id=<?php echo $product['id']; ?>">
-                        <img src="<?php echo $product['image']; ?>" alt="<?php echo $product['designation']; ?>" class="img-fluid">
+                    <a href="index.php?page=product&id=<?php echo $produit['id']; ?>">
+                        <img src="<?php echo $produit['image']; ?>" alt="<?php echo $produit['designation']; ?>" class="img-fluid">
                     </a>
-                    <h5><?php echo $product['designation']; ?></h5>
-                    <p>$<?php echo $product['prix']; ?></p>
+                    <h5><?php echo $produit['designation']; ?></h5>
+                    <p>$<?php echo $produit['prix']; ?></p>
                 </div>
         <?php }
         } else {

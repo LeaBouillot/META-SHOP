@@ -2,7 +2,7 @@
 require_once '../config/config.php';
 require_once '../inc/header.php';
 ?>
-
+ <link rel="stylesheet" href="../css/style.css">
 <div class="container">
     <h2>Catégories de Produits</h2>
     <?php

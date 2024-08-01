@@ -11,30 +11,7 @@ require_once '../inc/header.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil - E-commerce</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 20px;
-            margin: 20px;
-        }
-
-        .product-item {
-            border: 1px solid #ccc;
-            padding: 10px;
-            text-align: center;
-        }
-
-        .product-item img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        .product-item a {
-            text-decoration: none;
-            color: #000;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>

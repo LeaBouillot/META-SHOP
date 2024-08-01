@@ -1,18 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact-form</title>
-    <link rel="stylesheet" href="../css/contact.css" />
-</head>
+<?php
+require_once '../config/config.php';
+require_once '../inc/header.php';
+?>
+ <link rel="stylesheet" href="../css/contact.css" />
 
 <body>
     <div class="contact-container">
         <form action="https://api.web3forms.com/submit" method="POST" class="contact-left">
             <div class="contact-left-title">
-                <h2>Get in touch</h2>
+                <h2>Contactez nous</h2>
                 <hr />
             </div>
             <input type="hidden" name="access_key" value="ACCESS_KEY" />
@@ -20,7 +16,7 @@
             <input type="email" name="email" placeholder="Your Email" class="contact-inputs" required />
             <textarea name="message" placeholder="Your Message" class="contact-inputs"></textarea>
             <button type="submit">
-                Submit <img src="assets/arrow_icon.png" alt="arrow_icon" />
+                Envoyer
             </button>
         </form>
         <div class="contact-right">
