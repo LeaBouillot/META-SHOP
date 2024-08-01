@@ -1,65 +1,44 @@
 <?php
+require_once '../config/config.php';
+require_once '../inc/header.php';
 
-/**
- * On ne traite pas les super globales provenant de l'utilisateur directement,
- * ces données doivent être testées et vérifiées.
- */
+//session qui va permettre echanger dans tout les pages
+session_start();
+if (isset($_POST['valider'])) {
+    if (!empty($_POST['pseudo']) and !empty($_POST['mdp'])) {
+        $pseudo_defaut = "admin";
+        $mdp_defaut = "admin1234";
 
-$postData = $_POST;
-
-
-// Validation du formulaire
-if (isset($postData['email']) &&  isset($postData['password'])) {
-    if (!filter_var($postData['email'], FILTER_VALIDATE_EMAIL)) {
-        $errorMessage = 'Il faut un email valide pour soumettre le formulaire.';
+        $pseudo_saisi = htmlspecialchars($_POST['pseudo']);
+        $mdp_saisi = htmlspecialchars($_POST['mdp']);
+        if ($pseudo_saisi == $pseudo_defaut && $mdp_saisi == $mdp_defaut) {
+            $_SESSION['mdp'] = $mdp_saisi;
+            header('Location: index.php'); // redirection vers la page index.php si mdp est correct
+        } else {
+            echo "Pseudo ou mot de passe incorrect";
+        }
     } else {
-        foreach ($users as $user) {
-            if (
-                $user['email'] === $postData['email'] &&
-                $user['password'] === $postData['password']
-            ) {
-                $loggedUser = [
-                    'email' => $user['email'],
-                ];
-            }
-        }
-
-        if (!isset($loggedUser)) {
-            $errorMessage = sprintf(
-                'Les informations envoyées ne permettent pas de vous identifier : (%s/%s)',
-                $postData['email'],
-                strip_tags($postData['password'])
-            );
-        }
+        echo "Veuillez remplir tous les champs";
     }
 }
-?>
 
-<!--
-   	Si utilisateur/trice est non identifié(e), on affiche le formulaire
-	-->
-<?php if (!isset($loggedUser)) : ?>
-    <form action="index.php" method="POST">
-        <!-- si message d'erreur on l'affiche -->
-        <?php if (isset($errorMessage)) : ?>
-            <div class="alert alert-danger" role="alert">
-                <?php echo $errorMessage; ?>
-            </div>
-        <?php endif; ?>
-        <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" name="email" aria-describedby="email-help" placeholder="you@exemple.com">
-            <div id="email-help" class="form-text">L'email utilisé lors de la création de compte.</div>
+?>
+<link rel="stylesheet" href="../css/contact.css" />
+
+<div class="contact-container">
+    <form class="contact-left" method="POST" action="">
+        <div class="contact-left-title">
+            <h2>Login</h2>
+            <hr />
         </div>
-        <div class="mb-3">
-            <label for="password" class="form-label">Mot de passe</label>
-            <input type="password" class="form-control" id="password" name="password">
+        <div>
+            <input type="text" placeholder="Etrez votre nom" name="pseudo" class="contact-inputs" />
         </div>
-        <button type="submit" class="btn btn-primary">Envoyer</button>
+        <div>
+            <input type="text" placeholder="Etrez votre password" name="mdp" class="contact-inputs" />
+        </div>
+        <div class="submit-container">
+            <button type="submit" name="valider">Connecter</button>
+        </div>
     </form>
-    <!-- Si utilisateur/trice bien connectée on affiche un message de succès -->
-<?php else : ?>
-    <div class="alert alert-success" role="alert">
-        Bonjour <?php echo $loggedUser['email']; ?> et bienvenue sur le site !
-    </div>
-<?php endif; ?>
+</div>
