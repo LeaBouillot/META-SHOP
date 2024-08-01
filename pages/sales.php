@@ -1,22 +1,27 @@
 <?php
-$promotion = getPromotions();
+require_once '../config/config.php';
+require_once '../inc/header.php';
 ?>
 
-<h1>PROMOTIONS</h1>
+<div class="container">
+    <h2>Produits en Promotion</h2>
+    <div class="product-grid">
+        <?php
+        $promotions = getpromotions();
 
-<?php
-foreach ($produits as $produit) : ?>
-    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
-        <figure class="effect-ming tm-video-item">
-            <div class="product-item">
-                <a href="product.php?id=<?php echo $product['id']; ?>">
-                    <img src="../img/<?php $product['image']; ?>" alt="<?php echo $product['designation']; ?>" class="img-fluid">
-                </a>
-                <h5><?php echo $product['designation']; ?></h5>
-                <p><?php echo $product['modele']; ?></p>
-                <p><?php echo $product['categorie']; ?></p>
-                <p><?php echo $product['promotion'] ? 'true' : 'false'; ?></p>
-                <p><?php echo $product['prix']; ?></p>
-            </div>
-        <?php endforeach; ?>
+        if ($promotions['promotion']) {
+            foreach ($promotions as $product) { ?>
+                <div class="product-item">
+                    <a href="index.php?page=product&id=<?php echo $product['id']; ?>">
+                        <img src="<?php echo $product['image']; ?>" alt="<?php echo $product['designation']; ?>" class="img-fluid">
+                    </a>
+                    <h5><?php echo $product['designation']; ?></h5>
+                    <p>$<?php echo $product['prix']; ?></p>
+                </div>
+        <?php }
+        } else {
+            echo "<p>Aucun produit en promotion pour le moment.</p>";
+        }
+        ?>
     </div>
+</div>

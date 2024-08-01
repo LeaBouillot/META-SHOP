@@ -11,23 +11,23 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.php"><img src="../img/logo-ms.png" width="80" alt="logo"></a>
+            <a class="navbar-brand" href="home.php"><img src="../img/logo-ms.png" width="80" alt="logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarScroll">
                 <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.php">Accueil</a>
+                        <a class="nav-link active" aria-current="page" href="home.php">Accueil</a>
                     </li>
+                    <!-- <li class="nav-item" class="hidden">
+                        <a class="nav-link" href="products.php">Produits</a>
+                    </li> -->
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?pg=products">Produits</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php?pg=sales">Promotions</a>
+                        <a class="nav-link" href="sales.php">Promotions</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="index.php?pg=categories" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="categories.php" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Categories
                         </a>
                         <ul class="dropdown-menu">
@@ -41,10 +41,10 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?pg=contact">Contact</a>
+                        <a class="nav-link" href="./contact.php">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?pg=login">Login</a>
+                        <a class="nav-link" href="./login.php">Login</a>
                     </li>
 
                 </ul>

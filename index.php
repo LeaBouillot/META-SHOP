@@ -1,22 +1,49 @@
 <?php
 
-// inclure le fichier de configuration du projet
 require_once './config/config.php';
 
-# EN-TETE DE PAGE COMMUN A TOUTES LES PAGES DU SITE
-// Inclusion de header.php
 require_once './inc/header.php';
 
-# Méthode n°2 : ?? (opérateur de fusion null)
-$page = $_GET['pg'] ?? 'home';
-
-# Alternative n°2 : enregistrer toutes les pages dans un tableau, si la page n’est pas contenu dans le tableau rediriger sur un page par défaut (404) ou home
-$authorizedPages = ['home', 'products', 'categories', 'sales', 'contact', 'login', '404'];
-$page = in_array($page, $authorizedPages) ? $page : '404';
+$page = isset($_GET['page']) ? $_GET['page'] : 'home';
 
 
-// Inclusion de la page demandée
-require_once './pages/' . $page . '.php';
+switch ($page) {
+    case 'home':
+        include 'home.php';
+        break;
+    case 'product':
+        include 'products.php';
+        break;
+    case 'products':
+        // Inclure une page qui affiche tous les produits (si elle existe)
+        include 'products.php';
+        break;
+    case 'promotions':
+        // Inclure une page qui affiche les promotions (si elle existe)
+        include 'sales.php';
+        break;
+    case 'categories':
+        // Inclure une page qui affiche les catégories (si elle existe)
+        include 'categories.php';
+        break;
+    case 'contact':
+        // Inclure une page de contact (si elle existe)
+        include 'contact.php';
+        break;
+    case 'login':
+        // Inclure une page de login (si elle existe)
+        include 'login.php';
+        break;
+    default:
+        include 'home.php';
+        break;
+}
+
+
+// $authorizedPages = ['home', 'products', 'categories', 'sales', 'contact', 'login', '404'];
+// $page = in_array($page, $authorizedPages) ? $page : '404';
+
+// require_once './pages/' . $page . '.php';
 
 
 # PIED DE PAGE COMMUN A TOUTES LES PAGES DU SITE
