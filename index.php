@@ -14,8 +14,6 @@ $page = $_GET['pg'] ?? 'home';
 $authorizedPages = ['home', 'products', 'categories', 'sales', 'contact', 'login', '404'];
 $page = in_array($page, $authorizedPages) ? $page : '404';
 
-//inclusion page header
-require_once('./inc/header.php');
 
 // Inclusion de la page demandée
 require_once './pages/' . $page . '.php';
@@ -23,4 +21,4 @@ require_once './pages/' . $page . '.php';
 
 # PIED DE PAGE COMMUN A TOUTES LES PAGES DU SITE
 // Inclusion de footer.php
-require_once './inc/footer.php';
+// require_once './inc/footer.php';

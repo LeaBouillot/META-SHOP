@@ -1,13 +1,24 @@
 <?php
-
 // définition d'une constante pour le fichier de données "data.php"
-define('DATAJSON', 'data.json');
+define('DATA', 'data.php');
 
-function getProduts()
+// inclusion du fichier de données 
+require_once DATA;
+
+// définition d'une constante pour le fichier de données "data.json"
+define('DATAJSON', __DIR__ . '/data.json');
+
+function getProducts()
 {
-    $data = json_decode(file_get_contents(DATAJSON), true);
-    return $data;
+    // récupération au format JSON
+    $allArticles = file_get_contents(DATAJSON);
+
+    // Afin d'exploiter les données, il faut les récupérer sous forme de tableau associatif
+    $allArticlesArray = json_decode($allArticles, true);
+
+    return $allArticlesArray;
 }
+
 
 // definir une image par défaut
 define('DEFAULT_IMAGE', './img/default-article-image.png');

@@ -1,11 +1,10 @@
         <!-- Réaliser une boucle PHP pour afficher les image -->
         <?php
-        include 'config.php';
         $products = getProducts();
         ?>
 
-        <?php
-        // boucler sur le tableau multidimmensionnel 
+       
+<?php // boucler sur le tableau multidimmensionnel 
         foreach ($products as $product) : ?>
             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
                 <figure class="effect-ming tm-video-item">
@@ -31,4 +30,3 @@
                     <a href="javascript:void(0);" class="btn btn-primary tm-btn-next">Next Page</a>
                 </div>
             </div>
-            </div> <!-- container-fluid, tm-container-content -->
