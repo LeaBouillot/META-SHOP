@@ -19,7 +19,8 @@ if ($product === null) {
 }
 
 ?>
-
+<link rel="stylesheet" href="../css/contact.css">
+<div class="product-container">
 <div class="product-detail">
     <h1><?php echo $product['designation']; ?></h1>
     <img src="<?php echo $product['image']; ?>" alt="<?php echo $product['designation']; ?>" class="img-fluid">
@@ -27,5 +28,6 @@ if ($product === null) {
     <p>Modèle: <?php echo $product['modele']; ?></p>
     <p>Prix: $<?php echo $product['prix']; ?></p>
     <p>Promotion: <?php echo $product['promotion'] ? 'Oui' : 'Non'; ?></p>
-    <a href="home.php" class="btn btn-primary">Retour à l'accueil</a>
+    <a href="home.php" class="btn btn-retour">Retour à l'accueil</a>
+</div>
 </div>
