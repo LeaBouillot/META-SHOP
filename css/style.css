@@ -31,6 +31,6 @@ body {
   color: #000;
 }
 
-.product-item a:hover {
-  color: #a363aa;
+.prix{
+  color: rgb(25, 49, 232);
 }

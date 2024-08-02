@@ -18,7 +18,7 @@ require_once '../inc/header.php';
                         <img src="<?php echo $produit['image']; ?>" alt="<?php echo $produit['designation']; ?>" class="img-fluid">
                     </a>
                     <h5><?php echo $produit['designation']; ?></h5>
-                    <p>$<?php echo $produit['prix']; ?></p>
+                    <p class="btn">$<?php echo $produit['prix']; ?></p>
                 </div>
         <?php }
         } else {
